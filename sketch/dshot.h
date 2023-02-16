@@ -6,11 +6,29 @@
  */
 
 
-#ifndef __DSHOT_H__
-#define __DSHOT_H__
+#pragma once
+
+#include <stm32f4xx.h>
+#include <stm32f4xx_hal_dma.h>
+#include <stm32f4xx_hal_tim.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim5;
 
 
-#include "tim.h"    	// header from stm32cubemx code generate
+void MX_TIM2_Init(void);
+void MX_TIM5_Init(void);
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
+
+#ifdef __cplusplus
+}
+#endif
 #include <stdbool.h>	
 #include <math.h>		// lrintf
 
@@ -67,6 +85,3 @@ typedef enum
 /* Functions */
 void dshot_init(dshot_type_e dshot_type);
 void dshot_write(uint16_t* motor_value);
-
-
-#endif /* __DSHOT_H__ */
