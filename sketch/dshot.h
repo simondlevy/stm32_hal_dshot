@@ -42,8 +42,12 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 #define MOTOR_1_TIM_CHANNEL     TIM_CHANNEL_4
 
 // MOTOR 2 (PA2) - TIM2 Channel 3, DMA1 Stream 1
+//#define MOTOR_2_TIM             (&htim2)
+//#define MOTOR_2_TIM_CHANNEL     TIM_CHANNEL_3
+
+// sdl MOTOR 2 (PA2) - TIM2 Channel 2, DMA1 Stream 6
 #define MOTOR_2_TIM             (&htim2)
-#define MOTOR_2_TIM_CHANNEL     TIM_CHANNEL_3
+#define MOTOR_2_TIM_CHANNEL     TIM_CHANNEL_2
 
 // MOTOR 3 (PA0) - TIM2 Channel 1, DMA1 Stream 5
 #define MOTOR_3_TIM             (&htim2)
@@ -82,6 +86,3 @@ typedef enum
 } dshot_type_e;
 
 
-/* Functions */
-void dshot_init(dshot_type_e dshot_type);
-void dshot_write(uint16_t* motor_value);
